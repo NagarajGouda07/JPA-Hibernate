@@ -5,10 +5,20 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "person_db2")
+@Table(name = "person_db3")
+
+@NamedQuery(name="getNameByEmail", query="Select ps.name from FreeFireEntity ps where ps.email= :byEmail")
+
+@NamedQuery(name = "getAgeById", query = "Select ps.age FROM FreeFireEntity ps WHERE ps.id = :id")
+
+@NamedQuery(name="getIdByAge", query="Select ps.id From FreeFireEntity ps Where ps.age= :byAge")
+
+@NamedQuery(name="getEmailByName", query="Select ps.email from FreeFireEntity ps where ps.name= :byName")
+
 public class FreeFireEntity {
 
 	@Id
